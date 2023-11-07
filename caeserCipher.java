@@ -1,4 +1,3 @@
-import java.util.*;
 
 class caeserCipher {
     public static String encode(String enc, int offset) {
@@ -23,8 +22,6 @@ class caeserCipher {
     }
 
     public static void main(String args[]) throws java.lang.Exception {
-        System.out.println("Mageshwaran - 20IT028");
-        System.out.println("Simulating caeser cipher\n---------------------");
         String msg = "Mageshwaran";
         System.out.println("Input : " + msg);
         System.out.printf("Encrypted Message :");

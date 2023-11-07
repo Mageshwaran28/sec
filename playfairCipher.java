@@ -4,15 +4,15 @@ class playfairCipher {
     private static char[][] charTable;
     private static Point[] positions;
 
-    private static String prepareText(String s, boolean chgJtoI) {
+    private static String prepareText(String s) {
         s = s.toUpperCase().replaceAll("[^A-Z]", "");
-        return chgJtoI ? s.replace("J", "I") : s.replace("Q", "");
+        return s.replace("J", "I") ;
     }
 
     private static void createTbl(String key, boolean chgJtoI) {
         charTable = new char[5][5];
         positions = new Point[26];
-        String s = prepareText(key + "ABCDEFGHIJKLMNOPQRSTUVWXYZ", chgJtoI);
+        String s = prepareText(key + "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         int len = s.length();
         for (int i = 0, k = 0; i < len; i++) {
             char c = s.charAt(i);
@@ -69,11 +69,9 @@ class playfairCipher {
     public static void main(String[] args) throws java.lang.Exception {
         String key = "IT";
         String txt = "Students";
-        boolean chgJtoI = true;
-        createTbl(key, chgJtoI);
-        String enc = encode(prepareText(txt, chgJtoI));
-        System.out.println("Mageshwaran - 20IT028");
-        System.out.println("Simulating Playfair Cipher\n----------------------");
+        createTbl(key, true);
+        String enc = encode(prepareText(txt, true));
+      
         System.out.println("Input Message : " + txt);
         System.out.println("Encrypted Message : " + enc);
         System.out.println("Decrypted Message : " + decode(enc));
